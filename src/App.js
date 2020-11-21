@@ -1,9 +1,13 @@
+import { Quiz } from 'Components/Quiz'
 import React from 'react'
 
 export const App = () => {
   return (
-    <div>
-      Find me in src/app.js!
-    </div>
+    <>
+      <div>
+        Quiz night!
+        <Quiz />
+      </div>
+    </>
   )
 }
