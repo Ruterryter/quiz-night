@@ -37,6 +37,87 @@ const questions =
       ]
     },
     {
+      questionText: 'What is "Burrata"?',
+      answerOptions: [
+        { answerText: 'A pasta dish', isCorrect: false },
+        { answerText: 'An Italian cheese', isCorrect: true },
+        { answerText: 'A short bread from Piemonte', isCorrect: false },
+        { answerText: 'A grape varieatal', isCorrect: false },
+      ]
+    },
+    {
+      questionText: 'Which ingredient is not included in aioli?',
+      answerOptions: [
+        { answerText: 'Garlic', isCorrect: false },
+        { answerText: 'Egg yolk', isCorrect: false },
+        { answerText: 'Oil', isCorrect: false },
+        { answerText: 'Safron', isCorrect: true },
+      ]
+    },
+    {
+      questionText: 'Which country produce Tokaji?',
+      answerOptions: [
+        { answerText: 'France', isCorrect: false },
+        { answerText: 'Germany', isCorrect: false },
+        { answerText: 'Hungary', isCorrect: true },
+        { answerText: 'Switzerland', isCorrect: false },
+      ]
+    },
+    {
+      questionText: 'How many years must a Rioja Reserva aged?',
+      answerOptions: [
+        { answerText: '3 years', isCorrect: true },
+        { answerText: '5 years', isCorrect: false },
+        { answerText: '7 years', isCorrect: false },
+        { answerText: '1 year', isCorrect: false },
+      ]
+    },
+    {
+      questionText: 'which flour is used in macarons?',
+      answerOptions: [
+        { answerText: 'Wheat flour', isCorrect: false },
+        { answerText: 'Almond flour', isCorrect: true },
+        { answerText: 'Corn flour', isCorrect: false },
+        { answerText: 'Rye flour', isCorrect: false },
+      ]
+    },
+    {
+      questionText: 'Which months do you traditionally eat Semla in Sweden?',
+      answerOptions: [
+        { answerText: 'February-March', isCorrect: true },
+        { answerText: 'March-April', isCorrect: false },
+        { answerText: 'May-June', isCorrect: false },
+        { answerText: 'December-January', isCorrect: false },
+      ]
+    },
+    {
+      questionText: 'What is the traditional spice in Kalops?',
+      answerOptions: [
+        { answerText: 'Rosé pepper', isCorrect: false },
+        { answerText: 'Ginger', isCorrect: false },
+        { answerText: 'Cloves', isCorrect: false },
+        { answerText: 'Allspice', isCorrect: true },
+      ]
+    },
+    {
+      questionText: 'Which country is the origin of Nutella?',
+      answerOptions: [
+        { answerText: 'Norway', isCorrect: false },
+        { answerText: 'France', isCorrect: false },
+        { answerText: 'Germany', isCorrect: false },
+        { answerText: 'Italy', isCorrect: true },
+      ]
+    },
+    {
+      questionText: 'In a traditional Swedish fika, which cake should you eat first?',
+      answerOptions: [
+        { answerText: 'Cinamon bun', isCorrect: true },
+        { answerText: 'Cream cake', isCorrect: false },
+        { answerText: 'Ginger bread', isCorrect: false },
+        { answerText: 'Sponge cake', isCorrect: false },
+      ]
+    },
+    {
       questionText: 'What should not be in an original Princess cake?',
       answerOptions: [
         { answerText: 'Custard', isCorrect: false },
@@ -45,7 +126,6 @@ const questions =
         { answerText: 'Sponge Cake', isCorrect: false },
       ]
     }
-
   ]
 
 const shuffle = (array) => {
@@ -63,7 +143,8 @@ const shuffle = (array) => {
   return array
 };
 
-//Makes a new array of questions, shuffles it and returns only the 3 first questions
+//Shuffles the questions and makes a new array, from that array take only the 10 first questions and present to the user. 
+
 const shuffledArray = shuffle(questions)
 const n = 3
 const newQuestionsArray = shuffledArray.slice(0, n);

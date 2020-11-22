@@ -4,6 +4,7 @@ export const CountdownTimer = () => {
   const [seconds, setSeconds] = useState(15)
   const [isActive, setIsActive] = useState(false)
   const handleCLick = () => setIsActive(true)
+  // timeOut = setIsActive(false)
 
   useEffect(() => {
     let interval = null
@@ -18,12 +19,11 @@ export const CountdownTimer = () => {
   return (
     <>
       <div>
-        {seconds}
-s
+        {seconds} left.
       </div>
       <div>
         <button onClick={handleCLick}>
-          start quiz
+          Start Quiz
         </button>
       </div>
     </>
