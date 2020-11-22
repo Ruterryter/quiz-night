@@ -1,11 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
-export const CountdownTimer = () => {
-  const [seconds, setSeconds] = useState(15)
-  const [isActive, setIsActive] = useState(false)
-  const handleCLick = () => setIsActive(true)
-  // timeOut = setIsActive(false)
-
+export const CountdownTimer = ({ isActive, seconds, setIsActive, setSeconds }) => {
   useEffect(() => {
     let interval = null
     if (isActive && (seconds > 0)) {
@@ -20,11 +15,6 @@ export const CountdownTimer = () => {
     <>
       <div>
         {seconds} left.
-      </div>
-      <div>
-        <button onClick={handleCLick}>
-          Start Quiz
-        </button>
       </div>
     </>
   )

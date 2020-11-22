@@ -1,52 +1,58 @@
+import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
 import { randomQuestions } from 'Questions';
-import React, { useState } from 'react'
 import { CountdownTimer } from './CountdownTimer';
-import { AppButton } from './AppButton';
 
 //add restart test button 
-//add timer to each question 
 
 const questions = randomQuestions
 
-export const Quiz = () => {
+export const Quiz = ({ isActive, seconds, setIsActive, setSeconds }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
-  const [unanswered, setUnanswered] = useState(0);
+  const [falseScore, setFalseScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
 
-  const [startQuiz, setStartQuiz] = useState(false)
+  const unAnswered = questions.length - (score + falseScore)
 
+  const goToNextQuestion = () => {
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < questions.length) {
+      setCurrentQuestion(nextQuestion);
+      setSeconds(15);
+    } else {
+      setShowScore(true);
+    }
+  }
 
   const userAnswer = (isCorrect) => {
     if (isCorrect) {
       setScore(score + 1);
     }
 
-    // const noAnswer = (timeOut) => {
-    //   if (timeOut) {
-    //     setUnanswered(unanswered + 1)
-    //   }
-
-
-    const nextQuestion = currentQuestion + 1;
-    if (nextQuestion < questions.length) {
-      setCurrentQuestion(nextQuestion);
-    } else {
-      setShowScore(true);
+    if (!isCorrect) {
+      setFalseScore(falseScore + 1)
     }
+
+    goToNextQuestion();
   }
 
+  useEffect(() => {
+    if (seconds === 0) {
+      goToNextQuestion()
+    }
+  }, [seconds])
 
   return (
     <>
       <div>
-        <AppButton title="Start Quiz" onClick={() => setStartQuiz(true)} />
-      </div>
-      <div>
         {showScore ? (
           <div>
             You scored {score} out of {questions.length}.
-            {unanswered} questions where unanswered.
+              And got {falseScore} wrong answers.
+            {isNaN(unAnswered) ? '' : `${unAnswered} was unanswered.`}
+            {console.log(unAnswered)}
+            <button>Restart</button>
           </div>
         ) : (
             <>
@@ -58,14 +64,14 @@ export const Quiz = () => {
               </div>
               <div>
                 {questions[currentQuestion].answerOptions.map((answerOption) => (
-                  <button onClick={() => userAnswer(answerOption.isCorrect)}>{answerOption.answerText}</button>
+                  <button onClick={() => userAnswer(answerOption.isCorrect)}>
+                    {answerOption.answerText}</button>
                 ))}
               </div>
-              <CountdownTimer />
+              <CountdownTimer isActive={isActive} seconds={seconds} setSeconds={setSeconds} setIsActive={setIsActive} />
             </>
           )}
       </div>
-
     </>
   );
 }
