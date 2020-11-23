@@ -4,7 +4,7 @@ import { Quiz } from 'Components/Quiz'
 import { AppButton } from './Components/AppButton'
 
 const AppWrapper = styled.div`
-  background-color: papayawhip;
+  background-color: #26AEBF;
   width: 100vw;
   height: 100vh;
   display: flex;
