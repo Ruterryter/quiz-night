@@ -5,6 +5,52 @@ import { CountdownTimer } from './CountdownTimer';
 
 //add restart test button 
 
+const QuizContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30rem;
+`
+
+const StatusBar = styled.div`
+  margin: 20px 0 10px 0;
+`
+const CuerrentQuestionIndex = styled.span`
+  font-weight: bold;
+  color: #544a39
+`
+const Question = styled.p`
+  font-style: italic;
+  color: #544a39
+`
+
+
+const AnswerButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: papayawhip;
+  color: #544a39;
+  width: 7rem;
+  height: 4rem;
+  margin: 20px 0 10px 0;
+  border: none; 
+`
+const ScoreContainer = styled.div`
+   display: flex;
+`
+const ScoreSummary = styled.p`
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: papayawhip;
+`
+const Restart = styled.button`
+  display: flex;
+  margin-top: 3rem;
+`
+
+
+
 const questions = randomQuestions
 
 export const Quiz = ({ isActive, seconds, setIsActive, setSeconds }) => {
@@ -45,33 +91,33 @@ export const Quiz = ({ isActive, seconds, setIsActive, setSeconds }) => {
 
   return (
     <>
-      <div>
+      <QuizContainer>
         {showScore ? (
-          <div>
-            You scored {score} out of {questions.length}.
-              And got {falseScore} wrong answers.
-            {isNaN(unAnswered) ? '' : `${unAnswered} was unanswered.`}
-            {console.log(unAnswered)}
-            <button>Restart</button>
-          </div>
+          <ScoreContainer>
+            <ScoreSummary>
+              You scored {score} out of {questions.length} questions!
+              <br></br>
+              {falseScore} questions had the wrong answer
+              <br></br>
+              {isNaN(unAnswered) ? '' : ` and ${unAnswered} questions were unanswered.`}
+              <Restart>Restart</Restart>
+            </ScoreSummary>
+
+          </ScoreContainer>
         ) : (
             <>
-              < div >
-                <div >
-                  <span>Question {currentQuestion + 1}</span>/{questions.length}
-                </div>
-                <div>{questions[currentQuestion].questionText}</div>
-              </div>
-              <div>
-                {questions[currentQuestion].answerOptions.map((answerOption) => (
-                  <button onClick={() => userAnswer(answerOption.isCorrect)}>
-                    {answerOption.answerText}</button>
-                ))}
-              </div>
+              <StatusBar >
+                <CuerrentQuestionIndex>Question {currentQuestion + 1}/{questions.length}</CuerrentQuestionIndex>
+              </StatusBar>
+              <Question>{questions[currentQuestion].questionText}</Question>
+              {questions[currentQuestion].answerOptions.map((answerOption) => (
+                <AnswerButton onClick={() => userAnswer(answerOption.isCorrect)}>
+                  {answerOption.answerText}</AnswerButton>
+              ))}
               <CountdownTimer isActive={isActive} seconds={seconds} setSeconds={setSeconds} setIsActive={setIsActive} />
             </>
           )}
-      </div>
+      </QuizContainer>
     </>
   );
 }

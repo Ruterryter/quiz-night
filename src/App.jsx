@@ -12,6 +12,11 @@ const AppWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `
+const QuizTitle = styled.h1`
+  color: papayawhip;
+`
+
+
 
 export const App = () => {
   const [seconds, setSeconds] = useState(15)
@@ -26,10 +31,10 @@ export const App = () => {
 
   return (
     <AppWrapper>
-      <div>
+      <QuizTitle>
         Quiz night!
     {showButton ? <AppButton title="Start Quiz" onClick={onCLick} /> : null}
-      </div>
+      </QuizTitle>
       {startQuiz ? <Quiz isActive={isActive} seconds={seconds} setSeconds={setSeconds} setIsActive={setIsActive} /> : null}
     </AppWrapper>
   )

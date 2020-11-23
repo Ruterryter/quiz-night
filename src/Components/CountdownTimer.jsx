@@ -1,6 +1,14 @@
 import React, { useEffect } from 'react'
+import styled from 'styled-components'
 
-export const CountdownTimer = ({ isActive, seconds, setIsActive, setSeconds }) => {
+const Timer = styled.div`
+  display: flex; 
+  color: red;
+  font-weight: bold;
+`
+
+
+export const CountdownTimer = ({ isActive, seconds, setSeconds }) => {
   useEffect(() => {
     let interval = null
     if (isActive && (seconds > 0)) {
@@ -9,13 +17,13 @@ export const CountdownTimer = ({ isActive, seconds, setIsActive, setSeconds }) =
       }, 1000)
     }
     return () => clearInterval(interval)
-  }, [isActive, seconds])
+  }, [isActive, seconds, setSeconds])
 
   return (
     <>
-      <div>
-        {seconds} left.
-      </div>
+      <Timer>
+        {seconds} left
+      </Timer>
     </>
   )
 }
