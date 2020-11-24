@@ -1,11 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Quiz } from '../Components/Quiz';
+import { AppButton } from './AppButton';
 
 //testcases 
-//Test that the timer starts on 15 secs
 //Test that the score is correct
+//Test that you come to the next question when you have clicked on an answer
 //Test that the score is not visible until the end of the quiz
+//Test that you can restart the quiz in the end
 
 
 describe('Quiz', () => {
@@ -18,15 +20,9 @@ describe('Quiz', () => {
     );
   });
 
-  it('should ')
-
-  // it('the timer should start on 15 seconds ', () => {
-  //   expect(wrapper.toBe(setSeconds)).toEqual(15)
-  // });
-
   it('should find restart button ', () => {
-    expect(wrapper.find('button').text())
-      .toEqual('Restart');
+    expect(wrapper.find('AppButton').text())
+      .toEqual("<AppButton />");
   });
 
 });

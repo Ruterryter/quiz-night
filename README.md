@@ -12,10 +12,12 @@ Play the quiz
 - npm install
 - npm start
 
+To run the test files: 
+- npm run test
+
 
 ## Upcoming features/fixes
 - I would like to add all the life lines
 - Write more test cases
 - Add the questions to a database and fetch them with a useEffect instead
-- Save the data from the user in another way
 - Add some more styling

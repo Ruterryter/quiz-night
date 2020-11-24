@@ -4,8 +4,6 @@ import { randomQuestions } from 'Questions';
 import { CountdownTimer } from './CountdownTimer';
 import { AppButton } from './AppButton';
 
-//add restart test button 
-
 const QuizContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -49,7 +47,6 @@ const ScoreSummary = styled.p`
   color: papayawhip;
 `
 
-
 const questions = randomQuestions
 
 export const Quiz = ({ isActive, seconds, setIsActive, setSeconds }) => {
@@ -62,7 +59,6 @@ export const Quiz = ({ isActive, seconds, setIsActive, setSeconds }) => {
   const onClick = () => {
     window.location.reload();
   }
-
 
   const unAnswered = questions.length - (score + falseScore)
 
@@ -112,7 +108,6 @@ export const Quiz = ({ isActive, seconds, setIsActive, setSeconds }) => {
               {isNaN(unAnswered) ? '' : ` and ${unAnswered} questions were unanswered.`}
               <AppButton title="Restart" onClick={onClick} />
             </ScoreSummary>
-
           </ScoreContainer>
         ) : (
             <>

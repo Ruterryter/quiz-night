@@ -100,7 +100,7 @@ const questions =
       ]
     },
     {
-      questionText: 'How many years must a Rioja Reserva aged?',
+      questionText: 'How many years must a Rioja Reserva be aged before release?',
       answerOptions: [
         { answerText: '3 years', isCorrect: true },
         { answerText: '5 years', isCorrect: false },
@@ -182,8 +182,8 @@ const shuffle = (array) => {
 //Shuffles the questions and makes a new array, from that array it takes only the 10 first questions and present to the user. 
 
 const shuffledArray = shuffle(questions)
-const n = 3
-const newQuestionsArray = shuffledArray.slice(0, n);
+const n = 10
+export const newQuestionsArray = shuffledArray.slice(0, n);
 
 
 export const randomQuestions = newQuestionsArray

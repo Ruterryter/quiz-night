@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const StartRestartButton = styled.button`
+const Button = styled.button`
  display: flex;
  padding: 0.7em 1.4em;
  margin: 1em 0.3em 0.3em 0;
@@ -21,11 +21,10 @@ const StartRestartButton = styled.button`
 }
 `
 
-
 export const AppButton = ({ onClick, title }) => {
   return (
-    <StartRestartButton onClick={onClick}>
+    <Button onClick={onClick}>
       {title}
-    </StartRestartButton>
+    </Button>
   )
 }
