@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { randomQuestions } from 'Questions';
 import { CountdownTimer } from './CountdownTimer';
+import { AppButton } from './AppButton';
 
 //add restart test button 
 
@@ -17,13 +18,13 @@ const StatusBar = styled.div`
 `
 const CuerrentQuestionIndex = styled.span`
   font-weight: bold;
-  color: #544a39
+  color: papayawhip;
 `
 const Question = styled.p`
   font-style: italic;
-  color: #544a39
+  font-family:'Oxygen'; 
+  color: papayawhip;
 `
-
 
 const AnswerButton = styled.button`
   display: flex;
@@ -31,10 +32,13 @@ const AnswerButton = styled.button`
   align-items: center;
   background-color: papayawhip;
   color: #544a39;
+  font-family:'Oxygen'; 
+  font-weight: 400;
   width: 7rem;
   height: 4rem;
   margin: 20px 0 10px 0;
-  border: none; 
+  box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+  border-radius:0.15em;
 `
 const ScoreContainer = styled.div`
    display: flex;
@@ -44,11 +48,6 @@ const ScoreSummary = styled.p`
   font-size: 1.5rem;
   color: papayawhip;
 `
-const Restart = styled.button`
-  display: flex;
-  margin-top: 3rem;
-`
-
 
 
 const questions = randomQuestions
@@ -58,6 +57,12 @@ export const Quiz = ({ isActive, seconds, setIsActive, setSeconds }) => {
   const [score, setScore] = useState(0);
   const [falseScore, setFalseScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
+  const [showHelp, setShowHelp] = useState(true)
+
+  const onClick = () => {
+    window.location.reload();
+  }
+
 
   const unAnswered = questions.length - (score + falseScore)
 
@@ -89,6 +94,11 @@ export const Quiz = ({ isActive, seconds, setIsActive, setSeconds }) => {
     }
   }, [seconds])
 
+  const timeHelp = () => {
+    setSeconds(seconds + (10))
+    setShowHelp(false);
+  }
+
   return (
     <>
       <QuizContainer>
@@ -100,7 +110,7 @@ export const Quiz = ({ isActive, seconds, setIsActive, setSeconds }) => {
               {falseScore} questions had the wrong answer
               <br></br>
               {isNaN(unAnswered) ? '' : ` and ${unAnswered} questions were unanswered.`}
-              <Restart>Restart</Restart>
+              <AppButton title="Restart" onClick={onClick} />
             </ScoreSummary>
 
           </ScoreContainer>
@@ -114,6 +124,7 @@ export const Quiz = ({ isActive, seconds, setIsActive, setSeconds }) => {
                 <AnswerButton onClick={() => userAnswer(answerOption.isCorrect)}>
                   {answerOption.answerText}</AnswerButton>
               ))}
+              {showHelp ? <AppButton title="More time" onClick={timeHelp} /> : null}
               <CountdownTimer isActive={isActive} seconds={seconds} setSeconds={setSeconds} setIsActive={setIsActive} />
             </>
           )}

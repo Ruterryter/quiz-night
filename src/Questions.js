@@ -10,7 +10,43 @@ const questions =
       ],
     },
     {
-      questionText: 'Who Julia Child?',
+      questionText: 'Which organisation gives stars to restaurants?',
+      answerOptions: [
+        { answerText: 'FHM', isCorrect: false },
+        { answerText: 'Michelin', isCorrect: true },
+        { answerText: 'Goodyear', isCorrect: false },
+        { answerText: 'LVMH', isCorrect: false },
+      ],
+    },
+    {
+      questionText: 'Aduki, borlotti and cannellini are types of what?',
+      answerOptions: [
+        { answerText: 'Rice', isCorrect: false },
+        { answerText: 'Pasta', isCorrect: false },
+        { answerText: 'Beans', isCorrect: true },
+        { answerText: 'Biscottis', isCorrect: false },
+      ],
+    },
+    {
+      questionText: 'Deer meat is known by what name?',
+      answerOptions: [
+        { answerText: 'Venison', isCorrect: true },
+        { answerText: 'Veal', isCorrect: false },
+        { answerText: 'Vinder', isCorrect: false },
+        { answerText: 'Harlom', isCorrect: false },
+      ],
+    },
+    {
+      questionText: 'Grenadine is obtained from which fruit?',
+      answerOptions: [
+        { answerText: 'Apple', isCorrect: false },
+        { answerText: 'Orange', isCorrect: false },
+        { answerText: 'Pineapple', isCorrect: false },
+        { answerText: 'Pomegranate', isCorrect: true },
+      ],
+    },
+    {
+      questionText: 'Who was Julia Child?',
       answerOptions: [
         { answerText: 'A ballet dancer', isCorrect: false },
         { answerText: 'An actress', isCorrect: false },
@@ -73,7 +109,7 @@ const questions =
       ]
     },
     {
-      questionText: 'which flour is used in macarons?',
+      questionText: 'Which flour is used in macarons?',
       answerOptions: [
         { answerText: 'Wheat flour', isCorrect: false },
         { answerText: 'Almond flour', isCorrect: true },
@@ -143,7 +179,7 @@ const shuffle = (array) => {
   return array
 };
 
-//Shuffles the questions and makes a new array, from that array take only the 10 first questions and present to the user. 
+//Shuffles the questions and makes a new array, from that array it takes only the 10 first questions and present to the user. 
 
 const shuffledArray = shuffle(questions)
 const n = 3

@@ -4,7 +4,7 @@ import { Quiz } from 'Components/Quiz'
 import { AppButton } from './Components/AppButton'
 
 const AppWrapper = styled.div`
-  background-color: #26AEBF;
+  background-color: #4D6F73;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -15,8 +15,6 @@ const AppWrapper = styled.div`
 const QuizTitle = styled.h1`
   color: papayawhip;
 `
-
-
 
 export const App = () => {
   const [seconds, setSeconds] = useState(15)

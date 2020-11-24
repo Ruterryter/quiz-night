@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
-const Timer = styled.div`
+const Timer = styled.p`
   display: flex; 
-  color: red;
+  color: papayawhip;
   font-weight: bold;
+  font-size: 2rem;
 `
 
 
@@ -22,7 +23,7 @@ export const CountdownTimer = ({ isActive, seconds, setSeconds }) => {
   return (
     <>
       <Timer>
-        {seconds} left
+        {seconds} seconds left!
       </Timer>
     </>
   )
