@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { Quiz } from '../Components/Quiz';
-import { AppButton } from './AppButton';
 
 //testcases 
 //Test that the score is correct
@@ -12,6 +11,8 @@ import { AppButton } from './AppButton';
 
 describe('Quiz', () => {
   let wrapper;
+  const score = 0
+  const setScoreMock = jest.fn();
 
 
   beforeEach(() => {
@@ -20,9 +21,9 @@ describe('Quiz', () => {
     );
   });
 
-  it('should find restart button ', () => {
-    expect(wrapper.find('AppButton').text())
-      .toEqual("<AppButton />");
+  it('should not have called setScore', () => {
+    expect(setScoreMock).not.toHaveBeenCalled();
   });
+
 
 });
