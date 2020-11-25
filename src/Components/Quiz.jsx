@@ -116,7 +116,7 @@ export const Quiz = ({ isActive, seconds, setIsActive, setSeconds }) => {
               </StatusBar>
               <Question>{questions[currentQuestion].questionText}</Question>
               {questions[currentQuestion].answerOptions.map((answerOption) => (
-                <AnswerButton onClick={() => userAnswer(answerOption.isCorrect)}>
+                <AnswerButton onClick={() => userAnswer(answerOption.isCorrect)} key={answerOption.answerText}>
                   {answerOption.answerText}</AnswerButton>
               ))}
               {showHelp ? <AppButton title="More time" onClick={timeHelp} /> : null}

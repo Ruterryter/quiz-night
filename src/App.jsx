@@ -23,7 +23,6 @@ const QuizRules = styled.p`
   font-size: 1.5rem;
 `
 
-
 export const App = () => {
   const [seconds, setSeconds] = useState(15)
   const [isActive, setIsActive] = useState(false)
